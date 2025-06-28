@@ -1,36 +1,39 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
+title: GitHub Crash Course
+description: This holds all of the notes for the GitHub workshops held in the freeCodeCamp Discord Community.
 template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: This is a resource to accompany freeCodeCamp's Git and GitHub workshops held in the Discord community.
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/github-img1.svg
   actions:
-    - text: Example Guide
+    - text: Start Here
       link: /guides/example/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid } from "@astrojs/starlight/components";
 
-## Next steps
+## Guides
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+<CardGrid>
+  <Card title="Git Basics" icon="seti:git">
+    Review the basics for this popular version control system.
+  </Card>
+  <Card title="GitHub Basics" icon="github">
+    Review the basics for this popular platform.
+  </Card>
+  <Card title="GitHub Project Management" icon="github">
+    Learn about project management on GitHub.
+  </Card>
+  <Card title="GitHub Actions" icon="seti:github">
+    Review the basics for working with GitHub actions.
+  </Card>
+  <Card title="Additional Resources" icon="document">
+    Here is a list of additional resources where you can learn more about Git
+    and GitHub.
+  </Card>
+  <Card title="Glossary of terms" icon="open-book">
+    Here is a complete list of terms covered from the workshops and notes.
+  </Card>
 </CardGrid>
