@@ -16,15 +16,27 @@ export default defineConfig({
       ],
       sidebar: [
         {
+          label: "Introduction",
+          items: [{ label: "About this resource", slug: "introduction/about" }],
+        },
+        {
           label: "Guides",
           items: [
-            // Each item here is one entry in the navigation menu.
-            { label: "Example Guide", slug: "guides/example" },
+            { label: "Git Basics", slug: "guides/git-basics" },
+            { label: "GitHub Basics", slug: "guides/github-basics" },
+            {
+              label: "GitHub Project Management",
+              slug: "guides/project-management",
+            },
+            { label: "GitHub Actions", slug: "guides/github-actions" },
           ],
         },
         {
-          label: "Reference",
-          autogenerate: { directory: "reference" },
+          label: "Resources",
+          items: [
+            { label: "Additional Resources", slug: "resources/resources" },
+            { label: "Glossary", slug: "resources/glossary" },
+          ],
         },
       ],
     }),
