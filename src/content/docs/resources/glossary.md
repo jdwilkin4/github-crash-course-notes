@@ -7,6 +7,14 @@ Here is a list of terms used in the workshops and this reference guide.
 
 ---
 
+## Branches
+
+A branch in Git is like a separate workspace or copy of your project where you can try out changes without affecting the main version. The main branch (often called `main` or `master`) is usually the stable version of the project that's deployed to production or shared with users. Other branches are used to develop new features or fixes, which can later be merged into the `main` branch once they're ready.
+
+There are many different branch strategies and naming conventions. But ultimately it depends on what your team decides.
+
+---
+
 ## Command Line
 
 The command line is a text-based interface that allows users to interact with the operating system by typing commands, which are executed by a command-line interpreter (also known as a shell). You'll typically access the command line through a program called a terminal
@@ -17,9 +25,45 @@ If you are using Windows, you can use Command Prompt or [PowerShell](https://lea
 
 ---
 
+## Commit
+
+A commit is a snapshot of your project at a certain point in time.
+
+---
+
 ## Git
 
 Git is the most popular [disturbed version control system](https://en.wikipedia.org/wiki/Distributed_version_control) used to track changes for files and folders in a given project.
+
+---
+
+## `git init` Command
+
+This is the command you run to initialize an empty Git repository.
+
+```bash
+git init
+```
+
+---
+
+## `git status` Command
+
+This is the command you use to see the current state of your Git repository.
+
+```bash
+git status
+```
+
+---
+
+## `ls` Command
+
+This is used to list your files and folders. To list all files and folders, including the hidden ones, you can use the `-a` flag list this:
+
+```bash
+ls -a
+```
 
 ---
 
@@ -40,3 +84,11 @@ A `README.md` file is is a [markdown](https://www.markdownguide.org/) file that 
 A repository is a storage location (like a folder or project) where Git tracks all the changes made to files over time.
 
 ---
+
+`touch` Command
+
+This is used to create new files inside of a folder.
+
+```bash
+touch README.md
+```

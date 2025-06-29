@@ -56,9 +56,11 @@ Once Git is installed on your computer, there are a few configurations that you 
 
 Here is a [guide](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup) on how to setup those global configurations.
 
-## Initializing a Git Repository
+## Git Repositories
 
 A repository(or repo for short) is a storage location (like a folder or project) where Git tracks all the changes made to files over time.
+
+### Initializing a Git Repository
 
 Let's walk through how to initialize a new empty Git repository.
 
@@ -84,25 +86,13 @@ Let's walk through how to initialize a new empty Git repository.
     cd example-git-project
     ```
 
-5.  Add a file using the `touch` command followed by the file name like this:
-
-    ```bash
-    touch README.md
-    ```
-
-    A `README.md` file is is a [markdown](https://www.markdownguide.org/) file that contains important information about your project. This will include project features, how to set it up and run it locally and how to contribute to the project if it is open source.
-    Markdown is a markup language used mainly for documentation purposes like this `README.md` file.
-
-6.  View your new file by running the `ls` command. You should only see the `README.md` file listed.
-
-    ```bash
-    README.md
-    ```
-
-7.  To initialize an empty Git repository, you will need to run the `git init` command. Otherwise, you will not be able to use Git to start tracking changes for this project.
+5.  To initialize an empty Git repository, you will need to run the `git init` command. Otherwise, you will not be able to use Git to start tracking changes for this project.
     You should see the following output:
 
     ```bash
+    git init
+
+    # Result
     Initialized empty Git repository in /Users/jessicawilkins/Desktop/example-git-project/.git/
     ```
 
@@ -110,6 +100,9 @@ Let's walk through how to initialize a new empty Git repository.
     You should see this output:
 
     ```bash
+    ls -a
+
+    # Result
     .         ..        .git      README.md
     ```
 
@@ -117,20 +110,7 @@ Let's walk through how to initialize a new empty Git repository.
 
 </Steps>
 
-<Aside type="caution" title="Should you delete the .git directory?">
-    The `.git` directory holds very important information regarding your project.
-    So if you remove it you will lose that history and your project will no longer
-    be under version control. 
-  
-    The likelihood of you accidentally deleting in a
-    normal daily scenario is pretty low. Especially since the `.git` directory is
-    hidden by default.
-
-    If you do decide to remove it, just make sure you understand the effects.
-
-</Aside>
-
-### What is inside of the .git directory?
+### What is Inside of the .git Directory?
 
 If you want to take a peek inside of the `.git` directory, you can run the following commands:
 
@@ -153,10 +133,123 @@ Here is a basic breakdown of all of those files and folders:
 | config      | Contains settings or options that control how the project behaves. Like a list of rules or preferences.                                |
 | description | A short summary or name for the project. It helps you understand what the project is about.                                            |
 | hooks       | Small scripts that run automatically before or after certain actions (like saving or sending a file). Useful for automation.           |
-| info        | Contains general information about the project’s current state, such as version details.                                               |
+| info        | Contains general information about the project's current state, such as version details.                                               |
 |             |
 | objects     | Stores the actual content (like files and versions). This is where most of the project's data lives.                                   |
 |             |
 | refs        | Short for "references." These are pointers to specific versions or branches in your project history.                                   |
 
-If you are curious to dive deeper into the internals and plumbing of Git, then you can read through this [resource](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain#ch10-git-internals).
+If you are curious and want to dive deeper into the internals and plumbing of Git, then you can read through this [resource](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain#ch10-git-internals).
+
+<Aside type="caution" title="Should you delete the .git directory?">
+    The `.git` directory holds very important information regarding your project.
+    So if you remove it you will lose that history and your project will no longer
+    be under version control. 
+  
+    The likelihood of you accidentally deleting the `.git` directory in a
+    daily scenario is pretty low. Especially since the `.git` directory is
+    hidden by default.
+
+    If you do decide to remove it, just make sure you understand the effects.
+
+</Aside>
+
+## Staging Your files
+
+Now that an empty Git repository has been initialized, it is time to add a file and start tracking that file.
+
+### Creating a new file
+
+Make sure you are in the correct project directory that you created earlier. If you are not sure, then you can run the `pwd`(Print Working Directory) command.
+
+```bash
+pwd
+```
+
+If the result is still showing the `.git` directory, then you will need to run the `cd ../` command to go up a folder back to the root project directory.
+
+```bash
+cd ../
+```
+
+In the command line, you can add a file using the `touch` command followed by the file name like this:
+
+```bash
+touch README.md
+```
+
+A `README.md` file is is a [markdown](https://www.markdownguide.org/) file that contains important information about your project. This will include project features, how to set it up and run it locally and how to contribute to the project if it is open source. Markdown is a markup language used mainly for documentation purposes like this `README.md` file.
+
+To view your new file, you can run the `ls` command. Right now, you should only see the `README.md` file listed.
+
+```bash
+ls
+
+# Result
+README.md
+```
+
+### Working with the `git status` Command
+
+To view the current state for your Git repository, you can run the `git status` command.
+
+```bash
+git status
+```
+
+You should see something similar to this output here:
+
+```bash
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+There are few things going on in this output so let's break it down line by line.
+
+A branch in Git is like a separate workspace or copy of your project where you can try out changes without affecting the main version. The main branch (often called `main` or `master`) is usually the stable version of the project that's deployed to production or shared with users. Other branches are used to develop new features or fixes, which can later be merged into the `main` branch once they're ready.
+You will learn more about branches, different strategies and conventions in a later section.
+
+<Aside title="Should you use main or master?">
+  Most repositories today will default to the `main` branch. But some older
+  repositories will use `master` to represent the "source of truth" and
+  production branch.
+</Aside>
+
+`No commits yet` means that you haven't saved any changes yet. A commit is a snapshot of your project at a certain point in time. Commits will be covered in more detail later on.
+
+When you add a new file or folder, Git notices it but doesn't track it yet. These are called untracked files, and they won't be included in commits until you explicitly tell Git to track them.
+
+Sometimes you will just want a shortened version of the `git status` output. To accomplish you can run the `git status −−short` or `git status −s` command.
+
+```bash
+git status --short
+
+# Result
+?? README.md
+```
+
+The `??` symbol in the output means that a file is untracked by Git.
+
+### Adding files to the Staging Area
+
+When you make changes to your files, that is known as the working directory. You can use the `git add` command to stage those files like this:
+
+```bash
+git add README.md
+```
+
+The staging area is a temporary location for those changed files. If you like those changes, then you can commit them which will record that snapshot in your Git repository.
+If you don't want to keep those changes, then you can unstage those changes like this:
+
+```bash
+git reset
+```
+
+To read more about undoing local changes, you can read through this [helpful article](https://docs.gitlab.com/topics/git/undo/#undo-local-changes).
