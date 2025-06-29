@@ -293,6 +293,8 @@ git commit -m "docs: adding readme file"
 
 ## Viewing Your Commits
 
+### Using the `git log` Command
+
 To view all of your commits for your project, you can use the `git log` command like this:
 
 ```bash
@@ -309,3 +311,73 @@ git log --oneline
 # Example result
 418a60b (HEAD -> main) docs: adding readme file
 ```
+
+If you are interested in learning more about the `git log` command, you can read through this [resource](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History).
+
+### How often should you commit your changes?
+
+The short answer is it depends. Typically when I am working on a smaller change like a typo fix or small fix in the code, then that will just be one commit.
+But if I am working on a larger feature or more involved changes, then I will break up that work into smaller commits.
+
+The reasoning for this is because it will make it easier to go back in the Git history and see when you make certain changes. Also, sometimes you might need to revert back to a commit. So it helps to break up your work.
+
+## Creating branches
+
+As mentioned earlier, a branch is like a separate workspace or copy of your project where you can try out changes without affecting the main version.
+
+### How to View All Branches Locally
+
+So far we have only been working with the `main` branch. You can view all of your branches by using the `git branch` command like this:
+
+```bash
+git branch
+```
+
+### How to Create a New Branch
+
+To create a new branch, you can use the `git branch` command followed by the name of the new branch you wish to create.
+
+```bash
+git branch feature/search-bar
+```
+
+Now if you run the `git branch` command, you should see two branches listed.
+
+### How to Switch to a Branch
+
+You are still on the `main` branch. To switch to your new branch, you can use the following command:
+
+```bash
+git switch feature/search-bar
+```
+
+You should now see the following message:
+
+```bash
+Switched to branch 'feature/search-bar'
+```
+
+Now you can make changes on that branch that will only show up on that branch and no others. You can use the same commands as earlier to stage and commit your changes.
+
+```bash
+git add .
+git commit -m "feat: add search bar component with basic filtering functionality"
+```
+
+### How to Create a Branch and Switch to it in the Same Command
+
+Most developers will choose to create a branch and switch to it at the same time. To do that, you can run the following command `git switch -c <new-branch-name-goes-here>`:
+
+```bash
+git switch -c fix-login-error-message
+```
+
+### What are the differences between the git checkout and git switch commands?
+
+The `git switch` command is used to switch between branches while the `git checkout` command is used to restore files in addition to switching to branches.
+
+To create a new branch and switch to it using the `git checkout` command, you can use `git checkout -b <new-branch-name>`.
+
+To learn more, you can read this <a href="https://kodekloud.com/blog/git-switch-vs-checkout/">helpful article</a>.
+
+## Merging Changes
