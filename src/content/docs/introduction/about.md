@@ -1,5 +1,5 @@
 ---
-title: About the Git and GitHub Crash Course Notes Site
+title: About This QuickRef
 description: This is a resource to accompany freeCodeCamp's Git and GitHub workshops held in the Discord community.
 ---
 

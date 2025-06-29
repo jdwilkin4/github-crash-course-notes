@@ -6,7 +6,7 @@ import starlight from "@astrojs/starlight";
 export default defineConfig({
   integrations: [
     starlight({
-      title: "Git and GitHub Crash Course",
+      title: "QuickRef: Git & GitHub",
       social: [
         {
           icon: "github",
