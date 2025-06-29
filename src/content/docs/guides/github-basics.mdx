@@ -1,0 +1,191 @@
+---
+title: GitHub Basics
+description: This guide will help you understand the fundamental concepts of GitHub, including repositories, branches, commits, pull requests and more.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## What is GitHub?
+
+[GitHub](https://github.com/) is a platform used to create and manage your repositories. There are millions of users and repositories on GitHub.
+
+Open Source projects will have GitHub repositories as well as solo developers and private companies.
+
+GitHub utilizes Git and has many features like bug tracking, project boards, and more.
+
+<Aside title="Are there other platforms like GitHub?">
+  There are other platforms where you can create new repositories and
+  collaborate on projects. Some of these other platforms include GitLab and
+  Bitbucket. But GitHub is very widely used. So it is best to be familiar with
+  it.
+</Aside>
+
+## How to Create a GitHub Account
+
+Creating a personal GitHub account is free and will take only a few minutes. After your create the account, then you will need to verify your email address and then you can start using the platform.
+
+For the full instructions on how to create an account, you can read the [documentation](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github).
+
+<Aside title="Configuring two-factor authentication">
+    2FA, or Two-factor authentication, provides an extra layer of security when you log in. For example, after providing your login details, you can use an authenticator app and provide a code to login.
+
+    You can read more about how to configure this extra layer of security in the [documentation](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account#4-configuring-two-factor-authentication).
+
+</Aside>
+
+## How to Setup a GitHub Profile
+
+Once you are logged in, you can create your GitHub profile. This is place where you can showcase your projects and tech stack. This allows for other developers and potential hiring managers to learn more about you.
+
+Here is the full [documentation](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github) on how to setup your profile.
+
+Some developers will choose to personalize their profiles beyond the basic setup. Here is an example of my [profile](https://github.com/jdwilkin4).
+
+![Jessica Wilkins GitHub Profile](../../../assets/jdwilkin4-github-profile.png)
+
+If you are interested in customizing your profile a little more, then you can read through this [helpful article](https://www.freecodecamp.org/news/create-personalized-github-profile-page/).
+
+## How to Create a New Repository
+
+In the [Git basics section](/guides/git-basics/), you learned about basic Git commands and how to create repositories locally. But you can create a new repository on GitHub and then pull that down locally.
+
+To begin, click on the create icon located in the upper right hand corner of your profile page.
+
+![Create a new repository button](../../../assets/new-repo.png)
+
+You can also choose to navigate to the `https://github.com/new` url.
+
+As you can see, there is a lot of information on this page.
+
+![Create a new repository button](../../../assets/create-repo-page.png)
+
+So let's break it down by section.
+
+### Repository Template
+
+A repository template is a starter that you can use to quickly create a new repository.
+If you belong to one or more GitHub organizations, you might see options for organization-specific templates. You can also create your own templates by marking any repository as a template in its settings.
+
+If you are interested in creating your templates, you can read about it in the [documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository).
+
+### Setting a Repository Name and Description
+
+One of the required fields is the repository name. It is best to keep this short but descriptive.
+
+### Public and Private Repositories
+
+Public repositories can be seen by anyone regardless if they are logged in or not. Private repositories will only be shown to you and others that you choose invite to the repository.
+
+Sometimes, organizations will have private repositories just for their teams. Also, there might be times where you don't want to share your projects with everyone and just want to keep it private.
+
+To learn more about public and private repositories, you can review the [documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
+
+### Initializing the Repository With a README
+
+When you create the repository, you have the option to add a README file now or later.
+If you are planning to use an existing local project, then you might want to add the README file from that local project. Otherwise you can choose to create it now.
+
+### Adding a `.gitignore` File
+
+In the [Git basics section](/guides/git-basics/), you learned how to use Git to track changes to files and folders in your projects.
+But you can tell Git to ignore certain files and folders. This is where the `.gitignore` file comes in.
+
+Example files and folders that you would not want to have tracked by Git would be `.DS_Store` file, `node_modules` folder, `.env` file, etc.
+
+GitHub provides you with a dropdown menu of many `.gitignore` file options for projects including Next.js, Python, Rails and more.
+
+To learn more about the `.gitignore` file, you can read the [documentation](https://docs.github.com/en/get-started/git-basics/ignoring-files).
+
+### Adding a License
+
+A license for a project tells people what they can and cannot do with your code. There are many different licenses to choose from and this is a pretty expansive topic.
+
+So if you are just creating a short demo project or practice project, you can ignore this field for now.
+But if you are involved with larger projects, then you should learn about which license will be the best fit. I would suggest going through the [documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) which has information on which license to choose.
+
+## Connecting a Local Repository to GitHub Using a Remote Origin
+
+In the [Git basics section](/guides/git-basics/), you learned how to create repositories locally using Git. But no one will see your local projects since it just lives on your computer.
+
+If you want to have others see your project and collaborate with you, then you will need to connect it to a shared version on GitHub. This is where the `git remote add` command comes in.
+
+A remote is a version of your repository hosted elsewhere. In this case, we have just created a remote repository on GitHub.
+
+`origin` is the default name Git gives to the first remote repository you connect to your local repo.
+
+You first need to find the new repository you created on GitHub. If you are unsure where to look, you can go to your GitHub profile page and click on the repositories tab. Then you should see the most recent repository at the top.
+
+Then you will need to navigate to the command line and `cd` to the project you wish to connect to this remote repository.
+
+Once you are in the project directory, you can run the following command:
+
+```bash
+git remote add origin https://github.com/your-github-username-here/your-repo-name-here.git
+```
+
+Don't forget to replace the `your-github-username-here` and `your-repo-name-here` placeholders with your actual information from GitHub.
+
+To check the list of remotes connected to your local Git repository, you can run the following command:
+
+```bash
+git remote -v
+```
+
+You should see a similar output to mine here:
+
+```bash
+origin	https://github.com/jdwilkin4/example-github-project.git (fetch)
+origin	https://github.com/jdwilkin4/example-github-project.git (push)
+```
+
+## Pushing Your Local Repository to GitHub
+
+After you have set up your remote, you can push your local repository to GitHub using the `git push` command.
+
+If you try to run this command in your local directory, then you might get this error:
+
+```bash
+fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+```
+
+An upstream branch refers to the remote branch that your local branch is tracking. To resolve that error, you can take the suggestion that Git is providing you and run the following command:
+
+```bash
+git push --set-upstream origin main
+```
+
+You can also use the `git push -u origin main` command which will resolve the issue.
+
+Now you should see this output:
+
+```bash
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (6/6), 465 bytes | 465.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/jdwilkin4/example-github-project.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+```
+
+If you navigate back to GitHub and refresh the repository page, you should see your changes implemented.
+
+<Aside title="How to auto setup remote branches">
+    Every time you have a new branch and want to push that branch to your remote, you might see that `fatal: The current branch main has no upstream branch.` message.
+    But you can update your Git config to automatically handle this situation for you.
+
+    Here is a [helpful article](https://pawelgrzybek.com/auto-setup-remote-branch-and-never-again-see-an-error-about-the-missing-upstream/) on how to do that.
+
+</Aside>
+
+## Creating Issues on GitHub
+
+## Creating Pull Requests on Github

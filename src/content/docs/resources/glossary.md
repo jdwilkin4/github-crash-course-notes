@@ -51,6 +51,16 @@ Git is the most popular [disturbed version control system](https://en.wikipedia.
 
 ---
 
+## GitHub
+
+This is a platform used to create and manage your repositories. There are millions of users and repositories on GitHub.
+
+Open source projects will have GitHub repositories as well as solo developers and private companies.
+
+GitHub utilizes Git and has many features like bug tracking, project boards, and more.
+
+---
+
 ## `git checkout` Command
 
 This can be used to switch to a branch or restore files. To create and checkout a new branch all at once, you can use the `git checkout -b <new-branch-name>` command.
@@ -94,6 +104,24 @@ This command is used to join two or more development histories together. Here is
 
 ```bash
 git merge fix-login-error-message
+```
+
+---
+
+## `git remote add` Command
+
+If you want to have others see your project and collaborate with you, then you will need to connect it to a shared version on GitHub.
+
+This is where the `git remote add` command comes in.
+
+A remote is a version of your repository hosted elsewhere. In this case, we have just created a remote repository on GitHub.
+
+`origin` is the default name Git gives to the first remote repository you connect to your local repo.
+
+Here is an example of using the command:
+
+```bash
+git remote add origin https://github.com/jdwilkin4/example-github-project.git
 ```
 
 ---
@@ -166,3 +194,7 @@ This is used to create new files inside of a folder.
 ```bash
 touch README.md
 ```
+
+## Two-factor authentication
+
+2FA, or Two-factor authentication, provides an extra layer of security when you log in
