@@ -51,6 +51,12 @@ Git is the most popular [disturbed version control system](https://en.wikipedia.
 
 ---
 
+## `git checkout` Command
+
+This can be used to switch to a branch or restore files. To create and checkout a new branch all at once, you can use the `git checkout -b <new-branch-name>` command.
+
+---
+
 ## `git init` Command
 
 This is the command you run to initialize an empty Git repository.
@@ -82,6 +88,16 @@ git log --oneline
 
 ---
 
+## `git merge` Command
+
+This command is used to join two or more development histories together. Here is an example of merging a branch into the `main` branch:
+
+```bash
+git merge fix-login-error-message
+```
+
+---
+
 ## `git status` Command
 
 This is the command you use to see the current state of your Git repository.
@@ -89,6 +105,19 @@ This is the command you use to see the current state of your Git repository.
 ```bash
 git status
 ```
+
+You can also use the short command if your condense the output to just one line.
+
+```bash
+git status --short
+git status -s
+```
+
+---
+
+## `git switch` Command
+
+This is used to switch between branches in Git. You can use the `git switch -c <new-branch-name>` command to create and switch to a new branch.
 
 ---
 

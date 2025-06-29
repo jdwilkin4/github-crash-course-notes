@@ -314,7 +314,7 @@ git log --oneline
 
 If you are interested in learning more about the `git log` command, you can read through this [resource](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History).
 
-### How often should you commit your changes?
+### How often Should You Commit Your Changes?
 
 The short answer is it depends. Typically when I am working on a smaller change like a typo fix or small fix in the code, then that will just be one commit.
 But if I am working on a larger feature or more involved changes, then I will break up that work into smaller commits.
@@ -380,4 +380,114 @@ To create a new branch and switch to it using the `git checkout` command, you ca
 
 To learn more, you can read this <a href="https://kodekloud.com/blog/git-switch-vs-checkout/">helpful article</a>.
 
-## Merging Changes
+## Merging Changes into the Main Branch
+
+In a future section, we will look at how to create pull requests and merge changes from a different branch into the main branch.
+
+But for now, here is how you can merge changes from one branch into the main branch using the terminal.
+
+Let's start by using the same `fix-login-error-message` branch from earlier.
+
+Start by making some changes to the `README.md` file.
+
+Now you when you run `git status` you should see this output in the terminal:
+
+```bash
+On branch fix-login-error-message
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+```
+
+You can stage those changes using `git add .` or `git add README.md`. Then you can commit those changes using the `git commit` command:
+
+```bash
+git commit -m "docs: updating readme with auth workflow"
+```
+
+You can switch back to the `main` branch using the `git switch` command:
+
+```bash
+git switch main
+```
+
+To merge those changes from the `fix-login-error-message` branch, you can use the `git merge` command:
+
+```bash
+git merge fix-login-error-message
+```
+
+Now when you open up the `README.md` file, you will see those new changes applied on the `main` branch.
+
+<Aside title="Should you always just merge to main without a review?">
+    Short answer, it depends. If you are working on a solo project, especially if it isn't live yet, then pushing to main is fine.
+
+    But once you start working on team projects or solo projects that are live and have users, then you want to go through a review process and ensure that the new changes work and don't break production.
+
+</Aside>
+
+## Deleting Local Branches
+
+When yoa are done with a branch locally, you can delete it by using the `git branch -d` command like this:
+
+```bash
+git branch -d fix-login-error-message
+```
+
+<Aside title="Make sure not to delete the main branch" type="caution">
+    As mentioned earlier, the `main` or `master` branch usually represents your production branch. This is the current state of the project that is live and users are interacting with.
+
+    You want to avoid deleting the `main` branch by accident. If you do delete it, there are ways to recover it using the `git reflog` command.
+
+    Here is a [helpful article](https://rewind.com/blog/how-to-restore-deleted-branch-commit-git-reflog/) on restoring deleted branches.
+
+</Aside>
+
+When you are deleting branches you want to make sure not to delete the branch you are currently on. Otherwise, you will receive this error message:
+
+```bash
+error: cannot delete branch 'testing-branch' used by worktree
+```
+
+If you are not sure what branch you are on, you can run the `git branch` command which lists all of the locally branches and will show which one you are on.
+
+There will be times where using `git branch -d` doesn't work as expected. Let's say you have a new branch with some changes that you have staged and committed. But those changes haven't been merged into `main`.
+If you switch back to the `main` branch and try to delete that new branch, then you will see this error message:
+
+```bash
+error: the branch 'testing-branch' is not fully merged
+```
+
+If you are no longer interested in those changes, then you can do a force delete like this:
+
+```bash
+git branch -D testing-branch
+```
+
+## Naming conventions for Branches
+
+There are different naming conventions that teams will use when naming branches.
+
+Some will use the [conventional branch style](https://conventional-branch.github.io/).
+
+For example if you are working on a new feature you might name your branch this:
+
+```bash
+feat/add-testimonial-slider
+```
+
+Other teams might uses all lowercase names separated by dashes like this:
+
+```bash
+feat-add-testimonial-slider
+```
+
+At the end of the day, it all depends on what your team decides. I have been on teams that didn't really care about the branching name conventions while other teams were strict about it.
+
+<Aside type="caution" title="Avoid generic branch names">
+  It is best not to use overly generic and non descriptive branch names like
+  `patch-1` or `fix-code`. You will be in situation where you will bounce
+  between different branches and it helps to know at a glance what the branch is
+  all about.
+</Aside>
