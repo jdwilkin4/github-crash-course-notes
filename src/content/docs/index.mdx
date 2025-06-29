@@ -12,28 +12,28 @@ hero:
       icon: right-arrow
 ---
 
-import { Card, CardGrid } from "@astrojs/starlight/components";
+import { LinkCard, CardGrid } from "@astrojs/starlight/components";
 
 ## Guides
 
 <CardGrid>
-  <Card title="Git Basics" icon="seti:git">
+  <LinkCard title="Git Basics" href="/guides/git-basics">
     Review the basics for this popular version control system.
-  </Card>
-  <Card title="GitHub Basics" icon="github">
+  </LinkCard>
+  <LinkCard title="GitHub Basics" href="/guides/github-basics">
     Review the basics for this popular platform.
-  </Card>
-  <Card title="GitHub Project Management" icon="github">
+  </LinkCard>
+  <LinkCard title="GitHub Project Management" href="/guides/project-management">
     Learn about project management on GitHub.
-  </Card>
-  <Card title="GitHub Actions" icon="seti:github">
+  </LinkCard>
+  <LinkCard title="GitHub Actions" href="/guides/github-actions">
     Review the basics for working with GitHub actions.
-  </Card>
-  <Card title="Additional Resources" icon="document">
+  </LinkCard>
+  <LinkCard title="Additional Resources" href="/resources/resources">
     Here is a list of additional resources where you can learn more about Git
     and GitHub.
-  </Card>
-  <Card title="Glossary of terms" icon="open-book">
+  </LinkCard>
+  <LinkCard title="Glossary of terms" href="/resources/glossary">
     Here is a complete list of terms covered from the workshops and notes.
-  </Card>
+  </LinkCard>
 </CardGrid>
