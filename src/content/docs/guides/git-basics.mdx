@@ -253,3 +253,59 @@ git reset
 ```
 
 To read more about undoing local changes, you can read through this [helpful article](https://docs.gitlab.com/topics/git/undo/#undo-local-changes).
+
+<Aside title="Is using git add . bad?">
+    There will be some developers that will tell you to never use the `git add .` command. This command will add all changed files in the current directory (and subdirectories) to the staging area. 
+    Most of the time people say this because they have been in situation where they were moving to fast and staged files they didn't mean to.
+
+    But in my opinion, if you are checking the current status of your Git repository using `git status`, then it lower the chances of staging something you didn't mean to.
+    Plus, you can always undo changes if needed.
+
+</Aside>
+
+## Committing Your Files
+
+Once you have staged your files, it is time to commit them.
+
+To commit your changes, you can use the `git commit` command like this:
+
+```bash
+git commit
+```
+
+That will open an editor like Vim, Nano or something else. The editor that opens up will depend on your Git config.
+
+With the editor, you will be able to add longer commit messages with more detail. A commit message is a description of the changes you have made for this commit.
+
+If you just want to leave a short message, then you can use the `-m` flag like this:
+
+```bash
+git commit -m "docs: adding readme file"
+```
+
+<Aside title="What are conventional commits?">
+    Every team and project will have their preferred method for commit messages.
+    One common method is to use <a href="https://www.conventionalcommits.org/en/v1.0.0/">conventional commits</a>.
+
+    These are a set of rules on how to write your commit messages. You will prefix your commit message with something like `feat`, `docs`, `chore` or `fix` so your team will know the type of changes made.
+
+</Aside>
+
+## Viewing Your Commits
+
+To view all of your commits for your project, you can use the `git log` command like this:
+
+```bash
+git log
+```
+
+That command will show you each commit starting with the most recent one. Each commit will have a commit hash, date, author and message. A commit hash is a unique identifier for the commit.
+
+To view a more condensed output, you can use the `git log --oneline` command like this:
+
+```bash
+git log --oneline
+
+# Example result
+418a60b (HEAD -> main) docs: adding readme file
+```

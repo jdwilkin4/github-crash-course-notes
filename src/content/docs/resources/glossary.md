@@ -27,7 +27,21 @@ If you are using Windows, you can use Command Prompt or [PowerShell](https://lea
 
 ## Commit
 
-A commit is a snapshot of your project at a certain point in time.
+A commit is a snapshot of your project at a certain point in time. To commit your changes, you can use the `git commit` command like this:
+
+```bash
+git commit
+```
+
+That will open an editor like Vim, Nano or something else. The editor that opens up will depend on your Git config.
+
+With the editor, you will be able to add longer commit messages with more detail. A commit message is a description of the changes you have made for this commit.
+
+If you just want to leave a short message, then you can use the `-m` flag like this:
+
+```bash
+git commit -m "docs: adding readme file"
+```
 
 ---
 
@@ -43,6 +57,27 @@ This is the command you run to initialize an empty Git repository.
 
 ```bash
 git init
+```
+
+---
+
+## `git log` Command
+
+To view all of your commits for your project, you can use the `git log` command like this:
+
+```bash
+git log
+```
+
+That command will show you each commit starting with the most recent one. Each commit will have a commit hash, date, author and message. A commit hash is a unique identifier for the commit.
+
+To view a more condensed output, you can use the `git log --oneline` command like this:
+
+```bash
+git log --oneline
+
+# Example result
+418a60b (HEAD -> main) docs: adding readme file
 ```
 
 ---
@@ -73,6 +108,16 @@ ls -a
 
 ---
 
+## `mkdir` Command
+
+This is used to create a new directory.
+
+```bash
+mkdir example-project
+```
+
+---
+
 ## `README.md` file
 
 A `README.md` file is is a [markdown](https://www.markdownguide.org/) file that contains important information about your project. This will include project features, how to set it up and run it locally and how to contribute to the project if it is open source.
@@ -85,7 +130,7 @@ A repository is a storage location (like a folder or project) where Git tracks a
 
 ---
 
-`touch` Command
+## `touch` Command
 
 This is used to create new files inside of a folder.
 
