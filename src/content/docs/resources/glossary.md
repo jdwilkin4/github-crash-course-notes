@@ -45,6 +45,12 @@ git commit -m "docs: adding readme file"
 
 ---
 
+## Fork
+
+A fork is your personal copy of another repository.
+
+---
+
 ## Git
 
 Git is the most popular [disturbed version control system](https://en.wikipedia.org/wiki/Distributed_version_control) used to track changes for files and folders in a given project.
@@ -64,6 +70,12 @@ GitHub utilizes Git and has many features like bug tracking, project boards, and
 ## `git checkout` Command
 
 This can be used to switch to a branch or restore files. To create and checkout a new branch all at once, you can use the `git checkout -b <new-branch-name>` command.
+
+---
+
+## `git clone` Command
+
+This command is used to create a local copy of an existing remote repository.
 
 ---
 

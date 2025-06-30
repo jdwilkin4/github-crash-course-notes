@@ -3,7 +3,7 @@ title: GitHub Basics
 description: This guide will help you understand the fundamental concepts of GitHub, including repositories, branches, commits, pull requests and more.
 ---
 
-import { Aside } from "@astrojs/starlight/components";
+import { Aside, Steps } from "@astrojs/starlight/components";
 
 ## What is GitHub?
 
@@ -138,6 +138,14 @@ origin	https://github.com/jdwilkin4/example-github-project.git (fetch)
 origin	https://github.com/jdwilkin4/example-github-project.git (push)
 ```
 
+<Aside title="Working with SSH Keys">
+    The earlier examples were working with the HTTPS URL(Ex. `https://github.com/jdwilkin4/example-github-project.git`). 
+    But the more secure way to work with remotes is to use SSH URL.
+
+    To learn more about SSH keys, you can review the [documentation](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+
+</Aside>
+
 ## Pushing Your Local Repository to GitHub
 
 After you have set up your remote, you can push your local repository to GitHub using the `git push` command.
@@ -186,6 +194,75 @@ If you navigate back to GitHub and refresh the repository page, you should see y
 
 </Aside>
 
+## Forking a Repository
+
+There will be times where you will want to contribute to other repositories that aren't hosted on your personal GitHub account. This can include other solo developer repositories or organization repositories like freeCodeCamp.
+
+In order to begin contributing you will need to fork the repository. A fork is your personal copy of another repository.
+
+Let's say I am interested in contributing to the [Astro documentation](https://docs.astro.build/en/getting-started/).
+
+On GitHub, I can go to the Astro docs GitHub repository, and click on the `Fork` button located in the upper right hand corner.
+
+![Example of forking Astro docs repository](../../../assets/fork-ex.png)
+
+That will bring you to a page where you can click to create the fork and it should take a few seconds to create a new forked copy of the Astro docs.
+
+![Example of jdwilkin4 forked copy of Astro docs](../../../assets/astro-personal-fork.png)
+
+## Cloning a Repository
+
+If you have an existing repository on GitHub that you would like to have on your local computer, then you can clone the repository.
+
+Navigate to the repository page and click on the `Code` button and copy the URL.
+
+![Example of cloning a repository](../../../assets/clone-ex.png)
+
+Then navigate to your terminal and run the following command:
+
+```bash
+git clone url-goes-here
+```
+
+The name for that repository will be the same name as the remote. If you would like to change it then you can run this command instead.
+
+```bash
+git clone url-goes-here new-repo-name
+```
+
+Now you will have the full remote repository on your local computer.
+
+The next step is to sync up your fork with upstream.
+
+<Steps>
+
+1.  `cd` to your local forked copy:
+
+    ```bash
+    cd example-fork
+    ```
+
+2.  Run `git remote -v` to see the configured remote repository for the fork. You should see this output:
+
+    ```bash
+    origin  https://github.com/YOUR-USERNAME/YOUR-FORK.git (fetch)
+    origin  https://github.com/YOUR-USERNAME/YOUR-FORK.git (push)
+    ```
+
+3.  Run `git remote add upstream url-goes-here`. Replace `url-goes-here` with your actual Git URL.
+4.  Run `git remote -v`. You should see the following output:
+
+        ```bash
+        origin    https://github.com/YOUR-USERNAME/YOUR-FORK.git (fetch)
+        origin    https://github.com/YOUR-USERNAME/YOUR-FORK.git (push)
+        upstream  https://github.com/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (fetch)
+        upstream  https://github.com/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (push)
+        ```
+
+</Steps>
+
 ## Creating Issues on GitHub
+
+An issue is a place to report bugs, feature requests, and other suggestions for the repository.
 
 ## Creating Pull Requests on Github
