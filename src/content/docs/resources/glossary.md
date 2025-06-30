@@ -120,6 +120,12 @@ git merge fix-login-error-message
 
 ---
 
+## `git push`
+
+This command is used to push changes from a local repository to a remote repository.
+
+---
+
 ## `git remote add` Command
 
 If you want to have others see your project and collaborate with you, then you will need to connect it to a shared version on GitHub.
@@ -190,6 +196,12 @@ This is used to create a new directory.
 ```bash
 mkdir example-project
 ```
+
+---
+
+## Pull request
+
+This is a way to suggest changes to a shared remote repository.
 
 ---
 

@@ -286,3 +286,61 @@ GitHub provides a set of labels for repository that you can add to your issues t
 The are many more ways to create an issue. You can explore your options in the [documentation](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue).
 
 ## Creating Pull Requests on Github
+
+When you start working on team projects, there needs to be a way to propose new changes. That is where pull requests(PRs) come in.
+
+Let's look at an example.
+
+In an earlier section, I created the following issue on my repository.
+
+![GitHub repository assignee example](../../../assets/example-issue.png)
+
+Since I own this repository, I have the ability to assign myself to this issue.
+
+Next, I will need to navigate to my local repository and open up the terminal. It is best to create a new branch for any changes you wish to propose to a repository.
+
+As a reminder, here is how to create a new branch:
+
+```bash
+git switch -c new-branch-name-goes-here
+```
+
+Then you can work on the necessary changes for the issue. When you are done, then you can stage and commit those changes.
+
+To add those changes to the remote repository, you will need to use the `git push` command.
+
+```bash
+git push --set-upstream origin branch-name-goes-here
+```
+
+When you go back to GitHub and click on the `Pull requests` tab, you should see the following message:
+
+![Example PR message](../../../assets/pr-message.png)
+
+Click on the `Compare & pull request` button to take you to the pull request form.
+
+In this form, you will be able to provide a detailed PR title and description of the type of changes you are proposing. It is also important to [link the issue to your PR](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue) so it can be closed when the PR is merged into `main`.
+
+![Example PR title and message](../../../assets/pr-title-message.png)
+
+If this PR is still a work in progress, then you can create a draft which signals to other team members and maintainers that this PR is not ready for review.
+
+![Example draft PR](../../../assets/draft-pr.png)
+
+To see all of your files changed, you can click on the `Files changed` tab in the PR. It is best to do a quick look through the PR to make sure everything looks good and there are no extra files and untended changes.
+
+If you need to make more changes, then you can go back to your local copy and push more commits. You should see those new commits show up in the PR.
+
+Once a PR is ready to be merged into main, you can merge it right on the PR in GitHub. You have a few different options for merging and you can read about those options in the [documentation](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request).
+
+After the PR is merged in, you can safely delete your remote branch right in the GitHub UI.
+
+![Example delete remote branch](../../../assets/delete-remote-branch.png)
+
+<Aside title="PRs, repositories and write permissions">
+    If you are creating pull requests on repositories that you own or have been invited to collaborate on, then you will have write permissions. 
+    These permissions will enable you to review pull requests and merge in changes into the `main` branch.
+
+    If you are working on a repository where you do not have write permissions, then you will not have the ability to merge in PRs.
+
+</Aside>
