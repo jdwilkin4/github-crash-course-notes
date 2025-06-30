@@ -28,7 +28,6 @@ export default defineConfig({
               label: "GitHub Project Management",
               slug: "guides/project-management",
             },
-            { label: "GitHub Actions", slug: "guides/github-actions" },
           ],
         },
         {
