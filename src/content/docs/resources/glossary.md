@@ -161,6 +161,12 @@ This is used to switch between branches in Git. You can use the `git switch -c <
 
 ---
 
+## Issues
+
+An issue is a place to report bugs, suggest feature requests, and other suggestions for the repository. You can find the issues tab on your repository on GitHub.
+
+---
+
 ## `ls` Command
 
 This is used to list your files and folders. To list all files and folders, including the hidden ones, you can use the `-a` flag list this:
